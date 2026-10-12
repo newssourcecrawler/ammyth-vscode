@@ -1,0 +1,157 @@
+{
+  "publisher": "fe03478c-e68f-684b-86f5-418f16038dcc",
+  "license": "SEE LICENSE IN LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<owner>/<repo>.git"
+  },
+  "homepage": "https://github.com/<owner>/<repo>#readme",
+  "bugs": {
+    "url": "https://github.com/<owner>/<repo>/issues"
+  },
+  "keywords": [
+    "ai agents",
+    "agent workflow",
+    "work control",
+    "evidence",
+    "verification"
+  ],
+  "name": "ammyth-vscode",
+  "displayName": "Ammyth — Work Control for AI Agents",
+  "description": "Work Control for AI Agents in VS Code.",
+  "version": "2026.1.0",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ammyth.inspectCurrentWork",
+        "title": "Ammyth: Inspect Current Work"
+      },
+      {
+        "command": "ammyth.refreshCurrentWork",
+        "title": "Ammyth: Refresh Current Work",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "ammyth.proposeAssignment",
+        "title": "Ammyth: Propose Assignment",
+        "icon": "$(person-add)"
+      },
+      {
+        "command": "ammyth.initializeWorkState",
+        "title": "Ammyth: Initialize Work"
+      },
+      {
+        "command": "ammyth.importEvidence",
+        "title": "Ammyth: Import Evidence…",
+        "icon": "$(file-symlink-file)"
+      },
+      {
+        "command": "ammyth.importAssignment",
+        "title": "Ammyth: Import Assignment…",
+        "icon": "$(git-branch)"
+      },
+      {
+        "command": "ammyth.importVerificationEvidence",
+        "title": "Ammyth: Import Verification Evidence…",
+        "icon": "$(pulse)"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "ammyth.refreshCurrentWork",
+          "when": "view == ammyth.workState",
+          "group": "navigation"
+        },
+        {
+          "command": "ammyth.importEvidence",
+          "when": "view == ammyth.recordEvidence",
+          "group": "navigation"
+        },
+        {
+          "command": "ammyth.importVerificationEvidence",
+          "when": "view == ammyth.recordEvidence",
+          "group": "navigation"
+        },
+        {
+          "command": "ammyth.importAssignment",
+          "when": "view == ammyth.assignmentProposal",
+          "group": "navigation"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "panel": [
+        {
+          "id": "ammyth",
+          "title": "Ammyth",
+          "icon": "media/ammyth.svg"
+        }
+      ]
+    },
+        "views": {
+      "ammyth": [
+        {
+          "id": "ammyth.workState",
+          "name": "Current Work"
+        },
+        {
+          "id": "ammyth.assignmentProposal",
+          "name": "Propose Assignment",
+          "type": "webview"
+        },
+        {
+          "id": "ammyth.recordResult",
+          "name": "Record Result",
+          "type": "webview"
+        },
+        {
+          "id": "ammyth.reviewResult",
+          "name": "Review Result",
+          "type": "webview"
+        },
+        {
+          "id": "ammyth.recordEvidence",
+          "name": "Record Evidence",
+          "type": "webview"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Ammyth",
+      "properties": {
+        "ammyth.runtimePath": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "description": "Path to the installed Ammyth runtime directory."
+        },
+        "ammyth.cliPath": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "description": "Optional explicit path to ammyth-cli. Leave empty to use the CLI from the Ammyth runtime."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "test": "npm run compile && node --test test/*.test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/vscode": "^1.100.0",
+    "typescript": "^5.7.0"
+  }
+}
