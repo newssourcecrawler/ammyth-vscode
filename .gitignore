@@ -1,0 +1,16 @@
+node_modules/
+out/
+*.vsix
+
+.DS_Store
+*.log
+
+coverage/
+.nyc_output/
+
+.vscode-test/
+.vscode-test-web/
+
+.env
+.env.*
+!.env.example
