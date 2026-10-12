@@ -1,13 +1,13 @@
 {
-  "publisher": "fe03478c-e68f-684b-86f5-418f16038dcc",
+  "publisher": "",
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "https://github.com/<owner>/<repo>.git"
+    "url": "https://github.com/newssourcecrawler/ammyth-vscode"
   },
-  "homepage": "https://github.com/<owner>/<repo>#readme",
+  "homepage": "https://github.com/newssourcecrawler/ammyth-vscode#readme",
   "bugs": {
-    "url": "https://github.com/<owner>/<repo>/issues"
+    "url": "https://github.com/newssourcecrawler/ammyth-vscode/issues"
   },
   "keywords": [
     "ai agents",
